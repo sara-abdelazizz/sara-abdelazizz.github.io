@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sara Abdelaziz Yehia — Backend Developer</title>
+<meta name="description" content="Portfolio of Sara Abdelaziz Yehia, a backend developer building secure, scalable systems with Node.js, NestJS, TypeScript and MongoDB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0D0B0D;--bg2:#1A1015;--dark:#4A1026;--accent:#8B2348;--text:#F5F1F3;--muted:#B9AEB3;--line:rgba(245,241,243,.12);--accent-text:#D9628A;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.65 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+section{padding:5.5rem 0}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:2rem}
+p{margin:0 0 1rem;max-width:62ch}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(13,11,13,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Fraunces,serif;font-weight:700;text-decoration:none;font-size:1.15rem}
+nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;padding:.4rem 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+nav ul a:hover,nav ul a.on{color:var(--text);border-color:var(--accent)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);padding:.5rem .8rem;border-radius:8px;font:inherit;cursor:pointer}
+
+.hero{padding:6rem 0 6.5rem;background:radial-gradient(60% 70% at 85% 30%,rgba(139,35,72,.28),transparent 70%),radial-gradient(40% 50% at 0% 100%,rgba(74,16,38,.45),transparent 70%)}
+.hero .wrap{max-width:860px;margin-inline:max(1.25rem,calc((100% - 1080px)/2))}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.02em;animation:rise .9s ease both}
+.role{font-family:Fraunces,serif;font-size:1.5rem;color:var(--accent-text);margin:.9rem 0 1.4rem;animation:rise .9s .1s ease both}
+.lead{font-size:1.2rem;color:var(--text);animation:rise .9s .2s ease both}
+.sub{color:var(--muted);animation:rise .9s .25s ease both}
+.btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2rem;animation:rise .9s .35s ease both}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:.7rem 1.5rem;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent);transition:background .2s,transform .2s;cursor:pointer;font-family:inherit;font-size:1rem;color:var(--text);background:transparent}
+.btn[hidden]{display:none}
+.btn.fill{background:var(--accent)}
+.btn:hover{background:var(--dark)}
+.btn.fill:hover{background:#a52a54}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+.about{background:var(--bg2)}
+.about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem}
+.about h2{margin:0}
+.facts{list-style:none;padding:0;margin:1.5rem 0 0;border-top:1px solid var(--line)}
+.facts li{padding:.7rem 0;border-bottom:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between;gap:1rem}
+.facts b{color:var(--text);font-weight:500;text-align:right}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem 3rem}
+.skills h3{font-size:1.2rem;margin-bottom:.9rem;color:var(--accent-text)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.chips li,.tags li{padding:.3rem .8rem;border:1px solid var(--line);border-radius:999px;font-size:.92rem;background:rgba(74,16,38,.25)}
+.note{color:var(--muted);font-size:.9rem;margin-top:.8rem}
+
+.projects{background:var(--bg2)}
+.proj{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;padding:2.5rem 0;border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj h3{font-size:1.7rem;margin-bottom:.8rem}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;margin:1.2rem 0 1.5rem;padding:0}
+.proj ul.feat{margin:0;padding-left:1.1rem;color:var(--muted)}
+.proj ul.feat li{margin-bottom:.4rem}
+.proj ul.feat li::marker{color:var(--accent)}
+
+.tl{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:2px solid var(--dark);max-width:760px}
+.tl li{position:relative;padding-bottom:2.4rem}
+.tl li::before{content:"";position:absolute;left:calc(-1.6rem - 7px);top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.tl h3{font-size:1.3rem}
+.tl .where{color:var(--accent-text);font-weight:500;margin:.3rem 0 0}
+.tl .when{color:var(--muted);font-size:.92rem;margin:0 0 .6rem}
+
+.contact{background:radial-gradient(60% 80% at 20% 0%,rgba(139,35,72,.25),transparent 70%),var(--bg2)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.cl{list-style:none;padding:0;margin:1.5rem 0 0}
+.cl li{padding:.55rem 0;color:var(--muted)}
+.cl a{color:var(--text);text-underline-offset:4px}
+form{display:grid;gap:1rem}
+label{font-size:.92rem;color:var(--muted);display:grid;gap:.35rem}
+input,textarea{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;width:100%}
+input:focus,textarea:focus{outline:2px solid var(--accent-text);border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+
+@media(max-width:860px){
+.about .wrap,.proj,.contact .wrap{grid-template-columns:1fr;gap:2rem}
+.menu{display:block}
+nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem}
+nav ul.open{display:flex}
+nav ul a{display:block;padding:.8rem 0}
+section{padding:4rem 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<nav class="wrap" aria-label="Main">
+<a class="logo" href="#home">Sara Abdelaziz</a>
+<button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+<ul id="links">
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="wrap">
+<div>
+<h1>Sara Abdelaziz Yehia</h1>
+<p class="role">Backend Developer</p>
+<p class="lead">Building secure, scalable, and reliable backend systems.</p>
+<p class="sub">I specialize in Node.js, NestJS, TypeScript, and MongoDB. I design RESTful APIs, implement secure authentication and authorization, and build backend solutions for real-world problems. I’m currently learning React to deepen my understanding of full-stack development.</p>
+<div class="btns"><a class="btn fill" href="#projects">View my projects</a><a class="btn" href="#contact">Contact me</a><a class="btn cv" href="Sara-Abdelaziz-CV.pdf" download>Download CV</a></div>
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="wrap">
+<div><h2>About me</h2>
+<ul class="facts">
+<li>Based in <b>Cairo, Egypt</b></li>
+<li>Degree <b>Business Information Systems</b></li>
+<li>GPA <b>3.85</b></li>
+<li>Focus <b>Backend engineering</b></li>
+</ul></div>
+<div>
+<p>I’m a recent Business Information Systems graduate from Helwan University with a strong interest in backend development and software engineering.</p>
+<p>My technical experience comes from hands-on training and practical projects using Node.js, Express.js, NestJS, TypeScript, MongoDB, and MySQL. I’ve built backend applications with authentication and authorization, RESTful APIs, real-time communication, file uploads, and payment integration.</p>
+<p>I enjoy solving problems, learning new technologies, and writing organized, maintainable code. I’m learning React to broaden my skills while continuing to focus on backend engineering.</p>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="wrap">
+<h2>Technical skills</h2>
+<div class="skills">
+<div><h3>Backend development</h3><ul class="chips"><li>Node.js</li><li>Express.js</li><li>NestJS</li><li>RESTful APIs</li><li>CRUD operations</li><li>GraphQL</li><li>Modular architecture</li></ul></div>
+<div><h3>Programming languages</h3><ul class="chips"><li>JavaScript</li><li>TypeScript</li><li>SQL</li></ul></div>
+<div><h3>Databases</h3><ul class="chips"><li>MongoDB</li><li>Mongoose</li><li>MySQL</li></ul></div>
+<div><h3>Authentication &amp; security</h3><ul class="chips"><li>JWT</li><li>Access &amp; refresh tokens</li><li>RBAC</li><li>Password hashing</li><li>OTP verification</li><li>Google OAuth</li><li>Helmet</li><li>CORS</li><li>Rate limiting</li></ul></div>
+<div><h3>Tools &amp; technologies</h3><ul class="chips"><li>Git</li><li>GitHub</li><li>Postman</li><li>Socket.IO</li><li>Cron jobs</li><li>Cloudinary</li><li>Stripe</li></ul></div>
+<div><h3>Frontend</h3><ul class="chips"><li>React.js (learning)</li><li>HTML5</li><li>CSS3</li><li>Bootstrap</li><li>Responsive design</li></ul></div>
+</div>
+</div>
+</section>
+
+<section class="projects" id="projects">
+<div class="wrap">
+<h2>Projects</h2>
+
+<article class="proj">
+<div><h3>Job Search Platform</h3>
+<p>A job search platform that connects users and companies through role-based functionality and real-time communication.</p>
+<ul class="tags"><li>NestJS</li><li>TypeScript</li><li>MongoDB</li><li>GraphQL</li><li>Socket.IO</li><li>JWT</li><li>Cron Jobs</li></ul>
+<a class="btn" href="https://github.com/sara-abdelazizz/job-search-platform" target="_blank" rel="noopener noreferrer" aria-label="Job Search Platform on GitHub (opens in a new tab)">View on GitHub</a></div>
+<ul class="feat"><li>JWT access and refresh token authentication</li><li>Google authentication</li><li>OTP-based password recovery</li><li>Role-based access for users, companies, and administrators</li><li>GraphQL API</li><li>Real-time chat and notifications with Socket.IO</li><li>Scheduled background tasks with Cron Jobs</li><li>File uploads and user/company management</li></ul>
+</article>
+
+<article class="proj">
+<div><h3>E-commerce Application</h3>
+<p>A backend application providing the core functionality an e-commerce platform needs.</p>
+<ul class="tags"><li>NestJS</li><li>TypeScript</li><li>MongoDB</li><li>Mongoose</li><li>JWT</li><li>Stripe</li></ul>
+<a class="btn" href="https://github.com/sara-abdelazizz/Ecommerce-App" target="_blank" rel="noopener noreferrer" aria-label="E-commerce Application on GitHub (opens in a new tab)">View on GitHub</a></div>
+<ul class="feat"><li>Secure authentication and role-based authorization</li><li>Product and brand management</li><li>Shopping cart</li><li>Coupon management</li><li>Order creation and management</li><li>Stripe payment integration</li><li>Input validation and structured error handling</li></ul>
+</article>
+
+<article class="proj">
+<div><h3>Saraha App</h3>
+<p>An app that lets users receive anonymous messages while keeping accounts secure and authenticated.</p>
+<ul class="tags"><li>Node.js</li><li>Express.js</li><li>JavaScript</li><li>MongoDB</li><li>Mongoose</li><li>JWT</li><li>Cloudinary</li></ul>
+<a class="btn" href="https://github.com/sara-abdelazizz/Sara7aApp" target="_blank" rel="noopener noreferrer" aria-label="Saraha App on GitHub (opens in a new tab)">View on GitHub</a></div>
+<ul class="feat"><li>Anonymous messaging</li><li>JWT authentication with access and refresh tokens</li><li>Google login and email confirmation</li><li>Password reset</li><li>Role-based access control</li><li>Secure image uploads with Cloudinary</li><li>Request validation with Joi</li><li>Token revocation and authentication management</li></ul>
+</article>
+
+<article class="proj">
+<div><h3>Social App API</h3>
+<p>A social media backend API supporting interactions, authentication, media uploads, and real-time communication.</p>
+<ul class="tags"><li>Node.js</li><li>Express.js</li><li>TypeScript</li><li>MongoDB</li><li>Mongoose</li><li>JWT</li><li>Socket.IO</li></ul>
+<a class="btn" href="https://github.com/sara-abdelazizz/social-app-api" target="_blank" rel="noopener noreferrer" aria-label="Social App API on GitHub (opens in a new tab)">View on GitHub</a></div>
+<ul class="feat"><li>JWT user authentication</li><li>Create and manage posts</li><li>Comments and likes</li><li>Real-time chat with Socket.IO</li><li>Media uploads</li><li>MongoDB data modeling</li></ul>
+</article>
+</div>
+</section>
+
+<section id="education">
+<div class="wrap">
+<h2>Education &amp; training</h2>
+<ol class="tl">
+<li><h3>Bachelor’s Degree in Business Information Systems</h3><p class="where">Helwan University, Cairo, Egypt</p><p class="when">October 2022 – June 2026</p><p>Graduated with a GPA of 3.85, combining business information systems knowledge with practical software development projects.</p></li>
+<li><h3>Back-End Development Diploma</h3><p class="where">Route Academy</p><p class="when">July 2025 – April 2026</p><p>Backend training in Node.js, Express.js, NestJS, TypeScript, MongoDB, JWT authentication, REST APIs, and API testing with Postman.</p></li>
+<li><h3>Full-Stack Web Development Diploma</h3><p class="where">CLS Learning Solutions</p><p class="when">July 2024 – October 2024</p><p>Introductory training in HTML, CSS, JavaScript, Bootstrap, responsive design, and client-server fundamentals.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="wrap">
+<div>
+<h2>Let’s connect</h2>
+<p>I’m open to junior backend development opportunities where I can contribute to real projects, learn from experienced engineers, and keep growing as a software developer.</p>
+<ul class="cl">
+<li>Email: <a href="mailto:saraabdelaziz461@gmail.com">saraabdelaziz461@gmail.com</a></li>
+<li>Phone: <a href="tel:+201200294395">01200294395</a></li>
+<li>Location: Cairo, Egypt</li>
+<li><a href="https://www.linkedin.com/in/sara-abdelaziz-9722b22a7/" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://github.com/sara-abdelazizz" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+</ul>
+</div>
+<form id="f">
+<label>Your name<input name="n" required autocomplete="name"></label>
+<label>Your email<input name="e" type="email" required autocomplete="email"></label>
+<label>Message<textarea name="m" required></textarea></label>
+<button class="btn fill" type="submit">Send email</button>
+<a class="btn cv" href="Sara-Abdelaziz-CV.pdf" download>Download CV</a>
+</form>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Sara Abdelaziz Yehia. Backend Developer, Cairo, Egypt.</div></footer>
+
+<script>
+(function(){
+var b=document.querySelector('.menu'),u=document.getElementById('links');
+function close(){u.classList.remove('open');b.setAttribute('aria-expanded','false')}
+b.addEventListener('click',function(){var o=u.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+u.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+var links=[].slice.call(u.querySelectorAll('a'));
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+x.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('main section').forEach(function(s){io.observe(s)});}
+
+document.getElementById('f').addEventListener('submit',function(e){
+e.preventDefault();var d=new FormData(e.target);
+var body='From: '+d.get('n')+' ('+d.get('e')+')\n\n'+d.get('m');
+location.href='mailto:saraabdelaziz461@gmail.com?subject='+encodeURIComponent('Portfolio inquiry from '+d.get('n'))+'&body='+encodeURIComponent(body);
+});
+})();
+</script>
+</body>
+</html>
